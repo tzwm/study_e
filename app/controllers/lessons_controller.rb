@@ -6,9 +6,9 @@ class LessonsController < ApplicationController
   end
 
   def create
-    lesson = Lesson.create! lesson_params
+    @lesson = Lesson.create! lesson_params
 
-    redirect_to new_lesson_questionnaire_path(lesson.id, phase: Questionnaire::PHASE[0])
+    redirect_to new_lesson_questionnaire_path(@lesson.id, phase: Questionnaire::PHASE[0])
   end
 
   private

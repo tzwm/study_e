@@ -1,1 +1,25 @@
-h1 hha
+h1 创建问卷
+h2 = t("phase.#{@phase}")
+
+button#addQuestion.btn.btn-primary type="button" data-toggle="modal" data-target="#addQuestionModal" 创建问题
+
+= form_tag lesson_questionnaires_path, method: :post, id: "questionnaireForm" do
+  input type="hidden" name="phase" value=@phase
+  
+  = submit_tag "下一步", class: "btn btn-default"
+
+
+.modal.fade#addQuestionModal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close type="button" data-dismiss="modal" aria-label="Close"
+          span aria-hidden="true"
+        h4.modal-title 创建问题
+
+      .modal-body
+        input#questionInput type="text"
+
+      .modal-footer
+        button.btn.btn-default type="button" data-dismiss="modal" 取消
+        button.btn.btn-primary#submitQuestion type="button" 保存
