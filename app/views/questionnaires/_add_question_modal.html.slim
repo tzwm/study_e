@@ -1,0 +1,14 @@
+.modal.fade#addQuestionModal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close type="button" data-dismiss="modal" aria-label="Close"
+          span aria-hidden="true"
+        h4.modal-title 创建问题
+
+      .modal-body
+        input#questionInput type="text"
+
+      .modal-footer
+        button.btn.btn-default type="button" data-dismiss="modal" 取消
+        button.btn.btn-primary#submitQuestion type="button" 保存

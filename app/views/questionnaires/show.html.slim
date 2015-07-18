@@ -1,6 +1,12 @@
-p = t("phase.#{@questionnaire.phase}")
+p.title data-id=@questionnaire.id = t("phase.#{@questionnaire.phase}")
 
 p 问题:
-ol
+ol#questionsList
   - @questionnaire.questions.each do |q|
-    li = q.title
+    li
+      p = q.title
+      = link_to "删除", question_path(q.id), method: :delete
+
+button#addQuestion.btn.btn-primary type="button" data-toggle="modal" data-target="#addQuestionModal" 添加问题
+
+= render 'add_question_modal'

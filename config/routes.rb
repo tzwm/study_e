@@ -5,7 +5,11 @@ Rails.application.routes.draw do
     resources :questionnaires
   end
 
-  resources :questions
+  resources :questions do
+    collection do
+      post 'create_and_relate'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
