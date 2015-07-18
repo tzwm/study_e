@@ -54,10 +54,15 @@ ActiveRecord::Schema.define(version: 20150718041122) do
   add_index "questionnaire_question_relations", ["questionnaire_id"], name: "index_questionnaire_question_relations_on_questionnaire_id", using: :btree
 
   create_table "questionnaires", force: :cascade do |t|
-    t.string   "title",      limit: 255, null: false
+    t.integer  "lesson_id",  limit: 4,   null: false
+    t.string   "phase",      limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  add_index "questionnaires", ["lesson_id", "phase"], name: "index_questionnaires_on_lesson_id_and_phase", using: :btree
+  add_index "questionnaires", ["lesson_id"], name: "index_questionnaires_on_lesson_id", using: :btree
+  add_index "questionnaires", ["phase"], name: "index_questionnaires_on_phase", using: :btree
 
   create_table "questions", force: :cascade do |t|
     t.string   "title",      limit: 255, null: false

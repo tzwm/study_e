@@ -1,1 +1,15 @@
-h1 
+h1 创建班级
+
+.container
+  = form_tag lessons_path, method: :post, class: "form" do
+    .form-group
+      label 标题
+      = text_field_tag :title, nil, classes: "form-control"
+    .form-group
+      label 简介
+      = text_area_tag :description, nil, class: "form-control"
+    .form-group
+      label 是否模板
+      = check_box_tag :is_template
+
+    = submit_tag "下一步", class: "btn btn-default"
