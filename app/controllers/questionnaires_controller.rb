@@ -1,7 +1,12 @@
 class QuestionnairesController < ApplicationController
-  before_action :find_and_auth_phase, :find_lesson
+  before_action :find_and_auth_phase, :find_lesson, only: [:new, :create]
+  before_action :find_questionnaire, only: [:show]
 
   def new
+    
+  end
+
+  def show
     
   end
 
@@ -35,5 +40,10 @@ class QuestionnairesController < ApplicationController
   def find_lesson
     @lesson = Lesson.find(params[:lesson_id])
     redirect_to root_path unless @phase
+  end
+
+  def find_questionnaire
+    @questionnaire = Questionnaire.find(params[:id])
+    redirect_to :back unless @questionnaire
   end
 end

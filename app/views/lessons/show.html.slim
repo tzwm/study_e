@@ -1,0 +1,6 @@
+p = "名称: #{@lesson.title}"
+p = "描述: #{@lesson.description}"
+p = "问卷:"
+
+- @questionnaires.each do |q|
+  = link_to t("phase.#{q.phase}"), lesson_questionnaire_path(lesson_id: @lesson.id, id: q.id)

@@ -6,8 +6,11 @@ table.table.table-striped.table-hover
   thead
     tr
       th 名称
+      th 操作
   tbody
     - @lessons.each do |lesson|
       tr
-        th = lesson.title
-
+        th
+          = link_to lesson.title, lesson_path(lesson.id)
+        th
+          = link_to "删除", lesson_path(lesson.id), method: :delete

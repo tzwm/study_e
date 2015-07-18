@@ -1,0 +1,6 @@
+p = t("phase.#{@questionnaire.phase}")
+
+p 问题:
+ol
+  - @questionnaire.questions.each do |q|
+    li = q.title
