@@ -1,0 +1,13 @@
+h1 课程列表
+
+= link_to "创建课程", new_lesson_path
+
+table.table.table-striped.table-hover
+  thead
+    tr
+      th 名称
+  tbody
+    - @lessons.each do |lesson|
+      tr
+        th = lesson.title
+
